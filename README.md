@@ -4,6 +4,7 @@ To run the project, perform the below
 2. Run `npm install` to install node modules
 3. This is a Candy Online Store, add the products required, Customer details and it will generate a INVOICE. 
 4. The Generated Bill will have all details provided by the Customer.
+5. Phone number and Email are mandatory fields.
 
 # License used : MIT
 MIT license is a free to use agreement and it allows users to use the code without any costs. 
