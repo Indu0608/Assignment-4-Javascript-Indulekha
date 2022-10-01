@@ -1,0 +1,81 @@
+<%- include('partials/header')-%>
+    <!--Form to display Customer information for billing-->
+    <form name="myform" method="Post" action="/billing">
+        <table>
+            <tr>
+                <td>
+                    <lable for="CustName">Name:</lable><br />
+                    <input type="text" id="CustName" name="CustName" placeholder="Customer full Name"
+                        value="<%=data.CustName%>" />
+                    <br />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <lable for="CustPhone">Phone Number:</lable><br />
+                    <input type="text" id="CustPhone" name="CustPhone" placeholder="10 digit number"
+                        value="<%=data.CustPhone%>" />
+                    <br />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <lable for="CustEmail">Customer Email</lable><br />
+                    <input type="text" id="CustEmail" name="CustEmail" placeholder="abc@xyz.com"
+                        value="<%=data.CustEmail%>" />
+                    <br />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <lable for="CustAddress">Address:</lable><br />
+                    <input type="text" id="CustAddress" name="CustAddress" value="<%=data.CustAddress%>" />
+                    <br />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <lable for="CustCity">City:</lable><br />
+                    <input type="text" id="CustCity" name="CustCity" value="<%=data.CustAddress%>" />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="CustProvince">State/Province*</label>
+                    <select id="CustProvince" name="CustProvince">
+                        <option>Choose...</option>
+                        <option>AB</option>
+                        <option>BC</option>
+                        <option>MB</option>
+                        <option>NB</option>
+                        <option>NL</option>
+                        <option>NS</option>
+                        <option>ON</option>
+                        <option>PE</option>
+                        <option>QC</option>
+                        <option>SK</option>
+                    </select>
+                    <br />
+                </td>
+            </tr>
+        </table>
+        <br /><br />
+        <input type="submit" value="Generate the Bill" />
+        <br /><br />
+        <!--Placeholder to store errors while validating customer information-->
+        <% if(typeof errors !='undefined' ) { %>
+            <div class="errors">
+                <%errors.forEach((error)=>{%>
+                    <p>
+                        <%=error.msg%>
+                    </p>
+                    <%})%>
+            </div>
+            <% } %>
+    </form>
+    <%- include('partials/footer')-%>

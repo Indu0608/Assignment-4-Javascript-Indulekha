@@ -1,0 +1,76 @@
+<%- include('partials/header')-%>
+    <!--Div to display Customer Information in the reciept-->
+    <div class="reciept">
+        <div class="CustInfo">
+            <h3>Customer Information</h3>
+            <!--Name-->
+            <p>
+                Name: <%=data.customerInfo.CustName%>
+            </p>
+            <!--Phone-->
+            <p>
+                Phone: <%=data.customerInfo.CustPhone%>
+            </p>
+            <!--Email-->
+            <p>
+                Email: <%=data.customerInfo.CustEmail%>
+            </p>
+            <!--Address-->
+            <p>
+                Address: <%=data.customerInfo.CustAddress%>
+            </p>
+            <!--City-->
+            <p>
+                City: <%=data.customerInfo.CustCity%>,
+                    Province: <%=data.customerInfo.CustProvince%>
+            </p>
+        </div>
+        <!--Div to display Invoice total-->
+        <div>
+            <hr>
+            <h3>Invoice Total: $<%=data.total.toFixed(2)%>
+            </h3>
+            <hr>
+            <h4>Items Purchased</h4>
+            <table class="items-purchased" border="1">
+                <tr>
+                    <th>S.No</th>
+                    <th style="width:70%;">Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                <!--Loop to display all purchased items, Price,quantities, subtotal and taxed amounts in the resulting reciept-->
+                <% var i=0; data.purchasedItems.forEach(item=> {
+                    i++;
+                    if(item > 0){
+
+                    %>
+                    <tr>
+                        <td>
+                            <%=i%>
+                        </td>
+                        <td>
+                            <%=itemList[i-1].name%>
+                        </td>
+                        <td>
+                            $<%=itemList[i-1].price.toFixed(2)%>
+                        </td>
+                        <td>
+                            <%=item%>
+                        </td>
+                    </tr>
+                    <%}})%>
+                        <tr>
+                            <td colspan="3" style="text-align: right;">Sub Total</td>
+                            <td colspan="2">$<%=data.subtotal.toFixed(2)%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right;">Tax (13%)</td>
+                            <td colspan="2">$<%=data.tax.toFixed(2)%>
+                            </td>
+                        </tr>
+            </table>
+        </div>
+    </div>
+    <%- include('partials/footer')-%>

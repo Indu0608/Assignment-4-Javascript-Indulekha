@@ -1,0 +1,19 @@
+<%- include('partials/header')-%>
+    <div>
+        <% if(invoices.length> 0){
+            var i = 0;
+            invoices.forEach((invoice) => {%>
+            <h5>
+                <%= ++i;%>
+            </h5>
+            <h5>
+                <%=invoice.customerInfo.CustName%>
+            </h5>
+            <h4>$<%=invoice.total.toFixed(2) %>
+            </h4>
+            <h5><a href="/reciept/<%=invoice._id%>">View Invoice</a></h5>
+            <%})} else {%>
+                <h2>There are no invoices yet</h2>
+                <%}%>
+    </div>
+    <%- include('partials/footer')-%>

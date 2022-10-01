@@ -1,0 +1,42 @@
+<%- include('partials/header')-%>
+    <!--Form to store item details, price and quantity-->
+    <form name="myform" method="post" action="/order">
+        <table id="itemList" class="center" border="1">
+            <tr>
+                <th>Sl No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <% let i=0 %>
+                <% itemList.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%=++i %>
+                        </td>
+                        <td>
+                            <%=item.name%>
+                        </td>
+                        <td>
+                            <%=item.price%>
+                        </td>
+                        <td><input type="text" name="item" value="<%=item.quantity%>" /></td>
+                    </tr>
+                    <% }) %>
+        </table>
+        <br /><br />
+        <input type="submit" value="Purchase" />
+        <br /><br />
+        <!--placeholder to display error-->
+        <% if(typeof errors !='undefined' ) { %>
+            <div class="errors">
+                <%errors.forEach((error)=>{%>
+                    <p>
+                        <%=error.msg%>
+                    </p>
+                    <%})%>
+            </div>
+            <% } %>
+                <h2><a href="/invoices">View invoices</a></h2>
+    </form>
+    <%- include('partials/footer')-%>
