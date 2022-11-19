@@ -9,6 +9,7 @@ var taxes = {
     "PE": 0.15,
     "QC": 0.05,
     "SK": 0.05
+
 }
 function findTax(province) {
     console.log(taxes.province)
