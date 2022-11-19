@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const { validate1item, validateEmail, validatePhone } = require('./public/script/validation');
 //Including Tax calculation based on provinces with Calculate JS
 const { findTax } = require('./public/script/calculate');
-//To test the changes GIT//
 const {
     check,
     validationResult,
