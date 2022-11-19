@@ -119,7 +119,7 @@ myapp.post('/billing', [
             for (let i = 0; i < purchasedItems.length; i++) {
                 custInvoice.subtotal += itemList[i].price * purchasedItems[i]
             }
-            custInvoice.tax = custInvoice.subtotal * 0.13;
+            custInvoice.tax = custInvoice.subtotal * 0.1;
             custInvoice.total = custInvoice.subtotal + custInvoice.tax
 
             //saving data to the Database
