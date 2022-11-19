@@ -14,7 +14,7 @@ const {
 } = require('express-validator');
 var itemList = [
     {
-        name: 'Del monte juice',
+        name: 'Del monte Juice',
         price: 3.99,
         quantity: 0
     },
